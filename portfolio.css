@@ -1,0 +1,228 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,600&family=Poppins:wght@600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    /* An outline is a line drawn outside the element's border. */
+    outline: none;
+    /* adds a smooth scrolling effect to the document */
+    scroll-behavior: smooth;
+    /* font-family: 'Barlow Semi Condensed', sans-serif; */
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-color: #080808;
+    color: #fff; /* text color*/
+}
+.ul{
+    margin-top: -8vw;
+}
+#header{
+    /* width: 29vh;
+    height: 100vh; */
+    background-image: url('./bg.jpg');
+    /* border-radius: 70%; */
+    width: 35vh;
+    height: 114vh;
+    background-image: url(./bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 120%;
+    /* border-radius: 20%; */
+    background-position: 50% 50%;
+    margin-left: 132vh;
+    margin-top: -9vh;
+}
+
+.logo{
+    width: 50vh;
+    height: 56vh;
+    margin-left: -150vh;
+    margin-top: -15vh;
+}
+
+nav{
+    /* so that logo image and link both are side by side */
+    display: flex;
+    align-items: center;
+    /* justify conten aligns the flexible container's items when items donot use all available space on main-axis */
+    justify-content: space-between;
+    /* flex-wrap specifies whether the flexible items should wrap or not,if elements have no flexiblle items, the property has no effect */
+    flex-wrap: wrap;
+}
+
+.container{
+    /*  10px from top-bottom and 10% from left-right side */
+    padding: 10px 10%;
+}
+
+nav ul li{
+    /* it makes the list items horizontally align */
+    display: inline-block;
+    list-style: none;
+    /* to get some space between links, we'll use margin 10px from top-bottom and 20px from left-right */
+    margin: 10px 20px;
+    /* margin-top: -8vw; */
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    position: relative;
+    
+}
+
+/* adding hover effect */ 
+ nav ul li a::after{
+    content: '';
+    /* to make the underline hidden, to try make width 100%, there'll be underline of all items */ 
+    width:0;
+    height: 3px;
+    background: #cc3824;
+    position: absolute;
+    left: 0;
+    bottom: -6px ;
+    transition: 0.5s;
+}
+
+nav ul li a:hover::after{
+   /* the line under the list items will be visible whenever the width will be 100% */
+    width: 100%;
+}
+
+.header-text{
+    /* margin-left: -78vw; */
+    margin-left: -63vw;
+
+}
+
+.header-text h1{
+    font-size:60px;
+    margin-top: 20px;
+}
+
+.header-text h1 span{
+    color:#cc3824;
+}
+/* about */
+#about{
+    /* 60 px from  top-bottom and 0 from left-right */
+    padding: 60px 0;
+    color:#fff;
+}
+
+
+.row{
+    display: flex; /*as we're getting the content side by side*/
+    justify-content: space-between;
+    /* flex-wrap property sets whether flex items are forced onto one line or can wrap onto multiple lines, if wrapping is allowed, it sets the 
+    direction that lines are stacked */
+    flex-wrap: wrap;
+}
+
+.about-col-1{
+    /* width of col1 */
+    flex-basis: 35%;
+}
+.about-col-1 img{
+    width: 25vw;
+border-radius: 15px;
+margin-left: 24px;
+}
+
+.about-col-2{
+    flex-basis: 60%; /* and we're getting 5% space between columns*/
+}
+
+.subtitle{ /* to change the font color and size of the About me text*/
+    font-size: 45px;
+    font-weight: 600;
+    color:#fff;
+}
+
+.tab-titles{ /*this is for skills,experince and education*/
+     /*as they're coming row wise, like in row1 skills, row2 eexperience and row3 education and we want them side by side, so we'll use display flex  */
+    display: flex;
+    margin: 20px 0 40px;
+    /* justify-content: space-between; */
+}
+
+.tab-links{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative; /*the ele is positioned acc to the normal flow of the document and then offset relative to itself based on values left,
+    right,top,bottom while if position:static then left,right,top, bottom would have no effect refer link:developer.mozilla.org*/
+}
+
+/* hover effecr */
+.tab-links::after{
+    content: '';
+    /* hidden width */
+    width: 0;
+    height: 3px;
+    background: #cc3824;
+    position: absolute; /*need to ask*/
+    left:0;
+    bottom:-8px;
+    transition: 0.5s;
+}
+
+/* .tab-links:hover::after{ */
+    /* as we want to apply effect only on skills part, so we'll create another class active-links to apply changes on that  */
+    .tab-links.active-link::after{
+    width:50%; /*visible half of the line*/
+}
+
+/* class to apply effect on skills tab-contents class */
+.tab-contents ul li{
+    list-style: none;
+    /* 10 px from top-bottom and 0 from left-right */
+    margin: 20px 0;
+}
+/* as we have added span tag in our li , so for this we'll add some color*/
+.tab-contents ul li span{
+    color:#cc3824;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.tab-contents{
+    /* since we have so many lists, altho under different section ie experience, education etc, all will be displayed at once like a
+    list on the screen, so what we want to do is, unless and until we click on skills or education or exerience, the content won't be dislayed, 
+    so there's a property called display: none in our tab-contents class in css means it will hide all the tab contents*/
+    display: none;
+}
+
+.tab-contents.active-tab{
+    display: block; /*means the list which we earlier made hidden by doign display:none will be visible by using block property but only the list
+    related to skills part will be visible*/
+    /* to make the effect that only the content will be visible when we click on the skills part, we'll go to html and add onclick where we have 
+    write SKILLS*/
+
+}
+
+/* ------------projects--------------- */
+
+#projects{
+    /* 30px from top-bottom and 0 from left-right */
+    padding: 30px 0;
+}
+
+.projects-list{
+    /* The CSS Grid Layout Module offers a grid-based layout system, with rows and columns, making it easier to design web pages without having to 
+    use floats and positioning. */
+    display: grid;
+    /* specifies the column size */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* 	A shorthand property for the grid-row-gap and grid-column-gap properties */
+    grid-gap: 40px;
+    margin-top: 50px;
+}
