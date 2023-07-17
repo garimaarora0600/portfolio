@@ -15,7 +15,9 @@
     /* font-family: 'Barlow Semi Condensed', sans-serif; */
     font-family: 'Poppins', sans-serif;
 }
-
+html{
+    scroll-behavior: smooth;
+}
 body{
     background-color: #080808;
     color: #fff; /* text color*/
@@ -26,7 +28,7 @@ body{
 #header{
     /* width: 29vh;
     height: 100vh; */
-    background-image: url('./bg.jpg');
+    /* background-image: url('./bg.jpg'); */
     /* border-radius: 70%; */
     width: 35vh;
     height: 114vh;
@@ -202,7 +204,7 @@ margin-left: 24px;
 }
 
 .tab-contents.active-tab{
-    display: block; /*means the list which we earlier made hidden by doign display:none will be visible by using block property but only the list
+    display: block; /*means the list which we earlier made hidden by doing display:none will be visible by using block property but only the list
     related to skills part will be visible*/
     /* to make the effect that only the content will be visible when we click on the skills part, we'll go to html and add onclick where we have 
     write SKILLS*/
@@ -220,9 +222,349 @@ margin-left: 24px;
     /* The CSS Grid Layout Module offers a grid-based layout system, with rows and columns, making it easier to design web pages without having to 
     use floats and positioning. */
     display: grid;
-    /* specifies the column size */
+    /* specifies the column size and display in columns*/
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     /* 	A shorthand property for the grid-row-gap and grid-column-gap properties */
     grid-gap: 40px;
     margin-top: 50px;
+}
+
+.work{
+    border-radius: 10px;
+    position: relative;
+ /* means the image if overlapping, if overflow is hidden, it'll automatically crop somewhat of their images */
+    overflow:hidden;
+  
+}
+
+.work1{
+    width: 266px;
+    height: 474px;
+}
+.work2{
+    width: 276px;
+    height: 474px;
+}
+.work3{
+    width: 276px;
+    height: 474px;
+}
+.work img{
+    width:100%;
+    border-radius: 10px;
+    display: block;
+    /* transform is written in hover effect of work img, transition is just delaying the transform effect by 0.5s */
+    transition: transform 0.5s;
+    transition: height 0.5s;
+}
+.work2 img{
+    width:100%;
+    border-radius: 10px;
+    /* display: block; */
+    height: 474px;
+}
+.work3 img{
+    width:100%;
+    border-radius: 10px;
+    /* display: block; */
+    height: 474px;
+}
+.layer{
+    background: linear-gradient(rgba(0,0,0,0.6), #c00e0e);
+    border-radius: 10px;
+    position: absolute;
+    height: 0;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* some space in left and right */
+    padding: 0 40px;
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s;
+}
+.layer h3{
+    font-weight:bolder ;
+    margin-bottom: 20px;
+}
+
+.layer a{
+
+    margin-top: 20px;
+    color: #9f0e0e;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    background: #fff;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    text-align: center;
+    
+}
+.layer1{
+    width: 266px;
+    /* height: 474px; */
+    /* to create hover effect,need to make height to 0 so that it'll become visible only when the mouse will hover */
+    /* height:0; */
+   
+    
+}
+.layer2{
+    width: 276px;
+    /* height: 474px; */
+    /* to create hover effect,need to make height to 0 so that it'll become visible only when the mouse will hover */
+    /* height:0; */
+}
+.work:hover img{
+    /* to add transition , have to add transition property in work img */
+    transform: scale(1.1); /*what it'll do is, is slightly zoom in whenever mouse will hover on img*/
+}
+
+/* to display the content written on the image i.e like Project name and description */
+.work:hover .layer{
+ height: 100%; 
+ /*as we did make height to 0 in layer1 layer2 to make hover effect , but it too made the content written on it hidden, 
+ so to do that, we'll be adding here height=100% so that when mouse hover on img, it'll display the content of layer,and to display 
+ the hover effect efficiently, make transition:height 0.5s in layer */   
+}
+
+/*for button See More */
+.btn{
+    display: block;
+    margin: 50px auto;
+    /* The fit-content behaves as fit-content(stretch). In practice this means that the box will use the available space, but 
+    never more than max-content.
+    When used as laid out box size for width, height, min-width, min-height, max-width and max-height the maximum and minimum 
+    sizes refer to the content size */
+    width: fit-content;
+    border: 1px solid #9f0e0e;
+    padding: 12px 40px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    transition: background 0.5s;
+}
+
+/* adding hover effect on button */
+.btn:hover{
+    /* add transition for this in .btn */
+    background: #c00e0e;   
+}
+
+
+.contact-left{
+    flex-basis: 35%;
+}
+/* Set the initial length of the flex items */
+.contact-right{
+    flex-basis: 60%;
+
+}
+
+/* design the left-side */
+.contact-left p i{
+    color: #9f0e0e;
+    margin-right: 15px;
+    margin-top: 10px;
+    font-size: 25px;
+}
+/* designing social-media icons */
+.social-icons{
+    margin-top: 30px;
+}
+.social-icons a{
+    text-decoration: none;
+    font-size: 25px;
+    margin-right: 15px; /*it's making the space betwen every icon*/
+    color: #ababab;
+    /* The CSS Display property with value inline-block renders an
+     element according to content’s width or provided width whichever is greater, it does not force a line break until parent element’s width is fully utilized. */
+    display: inline-block;
+    transition: transform 0.5s;
+}
+
+/* add hover effect on social icons */
+.social-icons a:hover{
+    color: #9f0e0e;
+    transform: translateY(-5px); /*icons will moving up when mouse will hover on icons*/   
+}
+
+.btn.btn2{
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    background:transparent;
+    padding: 10px ;
+    /* margin: 10px; */
+    width: fit-content;
+    
+}
+
+.btn.btn2:hover{
+    background-color:#9f0e0e;
+    color:white;
+    box-shadow: 0 0 20px #9f0e0e;   
+}
+
+/* right side contact information */
+.contact-right form{
+    width: 100%;
+}
+
+form input, form textarea{
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 15px;
+    margin: 16px 0;
+    color: #fff;
+    font-size:18px;
+    border-radius: 10px;
+}
+
+/* as space between submit button and textarea is large, to reduce the space */
+form .btn2{
+    padding: 14px 60px;
+    font-size: 15px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.copyright{
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    background: #262626;
+    font-weight: 300;
+    /* some space from top */
+    margin-top: 20px;
+}
+
+/* CSS FOR SMALL SCREEN */
+/* use media queries to make the website more responsive */
+/* to hide menu bar and cross icon */
+nav .fa-solid{
+    display: none;
+}
+@media only screen and (max-width:600px)
+{
+    /* applicable for small screen */
+    #header{
+        background-image: url('./bg_phone.jpg');
+        /* width: 100px; */ 
+        /* height: 600px;
+        /* background-position-x: left 50px ; */
+        /* margin-left: 280px; */
+        /* background-size: cover; */
+        background-position: left;
+        width: 138px;
+        height: 600px;
+        margin-left: 213px;
+    }
+    .header-text{
+        margin-top: 100%;
+        /* margin-right: 40px; */
+        font-size: 11px;
+    }
+    .header-text p {
+    margin-top: -27vh;
+    margin-left: 10vh;
+    }
+    .header-text h1 {
+        font-size: 20px;
+        margin-left: 5vh;
+        margin-top: 10px;
+    }
+    .ul{
+        margin-top: -13px;
+    font-size: 18px;
+    margin-left: -250vw;
+    }
+    nav .fa-solid {
+        display: block;
+        font-size: 25px;
+        margin-bottom: 128px;
+        margin-right: -8px;
+    }
+
+    /* nav .fa-bars{
+        margin-left: 200px;
+    } */
+    .logo {
+        width: 50vh;
+        height: 56vh;
+        margin-left: -53vh;
+        margin-top: -15vh;
+    }
+    nav ul{
+        /* to design menu bar- making ul icons inside menu bar */
+        background-color: #9f0e0e;
+        position: fixed;
+        top: 0;
+        /* right: 0; */
+        right:-200px; /*to hide the menu bar*/
+        width: 200px;
+        height: 100vh;
+        padding-top: 50px;
+        /*adding js to use feature click menu bar to show or hide icons */
+        z-index: 2;
+        /* as menu is opening and closing a little late, so */
+        transition: right 0.5s;
+    }
+    nav ul li{
+        /* icons arrange vertically */
+        display: block;
+        margin: 25px;
+    }
+    /* set position for close icon */
+    nav ul .fa-solid{
+        position: absolute;
+        top: 50px;
+        left: 25px;
+        cursor: pointer;
+    }
+    /* now we want to hide the menu bar i.e icons displayed in menu bar, when we click on menu bar, 
+    only then icons will be displayed. so for that, change right in nav ul to -200px as width=200px 
+    and it'll move oward right side 200 px and will be hiddem */
+
+    .subtitle{
+        font-size: 40px;
+    }
+    /* .about-col-1, .about-col-2{
+        flex-basis: 100%;
+    } */
+    .about-col-1{
+        margin-bottom: 30px;
+    }
+    .about-col-1 img{
+        width: 250px;
+        margin-left: 40px;
+    }
+
+    .about-col-2{
+        font-size: 14px;
+    }
+
+    .tab-links{
+        font-size: 16px;
+        margin-right: 20px;
+
+    }
+
+    /* contact form*/
+    .contact-left, .contact-right{
+        flex-basis: 100%;
+    }
+
+    .copyright{
+        font-size: 14px;
+        width: 100%;
+        /* height: 100%; */
+        
+    }
 }
