@@ -26,10 +26,6 @@ body{
     margin-top: -8vw;
 }
 #header{
-    /* width: 29vh;
-    height: 100vh; */
-    /* background-image: url('./bg.jpg'); */
-    /* border-radius: 70%; */
     width: 35vh;
     height: 114vh;
     background-image: url(./bg.jpg);
@@ -37,8 +33,11 @@ body{
     background-size: 120%;
     /* border-radius: 20%; */
     background-position: 50% 50%;
+    /* vh is viewport height, is a unit of measurement of css represents
+    1% of height of viewport(the visible portion of webpage in browser window */
+   /* if viewport ht=800px, 1vh=8px */
     margin-left: 132vh;
-    margin-top: -9vh;
+    margin-top: -11vh;
 }
 
 .logo{
@@ -54,6 +53,8 @@ nav{
     align-items: center;
     /* justify conten aligns the flexible container's items when items donot use all available space on main-axis */
     justify-content: space-between;
+    /* flex-wrap: wrap; is applied to the nav element. This means that when the screen width becomes narrower and the navigation items cannot 
+    fit on a single line, they will wrap onto the next line. */
     /* flex-wrap specifies whether the flexible items should wrap or not,if elements have no flexiblle items, the property has no effect */
     flex-wrap: wrap;
 }
@@ -64,6 +65,11 @@ nav{
 }
 
 nav ul li{
+/* In the given code, the display: inline-block property is applied to the nav ul li selector. This is done to make the list items (li elements) in the navigation menu appear horizontally next to each other rather than vertically stacked.
+By default, li elements are block-level elements, meaning they stack vertically on top of each other. However, by using display: inline-block, the li elements behave like inline elements (such as span or a), allowing them to appear next to each other horizontally within the same line.
+The reason why display: flex is not used in this case is that the CSS flex property is applied to the parent container to create a flex container and control the layout of its child elements. In this particular code snippet, the nav ul li elements are already children of the nav ul 
+container
+, which is a flex container (as specified in the CSS code). Therefore, applying display: flex directly to nav ul li would have no effect since it is already a flex item within a flex container. */
     /* it makes the list items horizontally align */
     display: inline-block;
     list-style: none;
@@ -112,7 +118,8 @@ nav ul li a:hover::after{
 .header-text h1 span{
     color:#cc3824;
 }
-/* about */
+
+/* --------ABOUT SECTION-------------------------- */
 #about{
     /* 60 px from  top-bottom and 0 from left-right */
     padding: 60px 0;
@@ -130,10 +137,11 @@ nav ul li a:hover::after{
 
 .about-col-1{
     /* width of col1 */
+    /* By setting flex-basis: 35%, it means that the column will occupy 35% of the available space along the main axis. */
     flex-basis: 35%;
 }
 .about-col-1 img{
-    width: 25vw;
+width: 25vw;
 border-radius: 15px;
 margin-left: 24px;
 }
@@ -156,19 +164,28 @@ margin-left: 24px;
 }
 
 .tab-links{
+    /* every tab link have margin 50 px to the right */
     margin-right: 50px;
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
     position: relative; /*the ele is positioned acc to the normal flow of the document and then offset relative to itself based on values left,
     right,top,bottom while if position:static then left,right,top, bottom would have no effect refer link:developer.mozilla.org*/
+    /* By using position: relative on the parent, we create a new positioning context. This allows us to position the child element based on its
+     relationship to the parent element, rather than the entire document.
+*/
 }
 
-/* hover effecr */
+/* hover effect */
+/* In CSS, the ::after pseudo-element is used to insert content after the content of an element. It is commonly used to add decorative elements, icons, or generated content to an element.
+
+The ::after pseudo-element is created using the ::after selector. It is added as the last child of the selected element and can be styled independently using CSS properties. */
 .tab-links::after{
     content: '';
     /* hidden width */
+    /* so that if we're clicking on one tab-link, the other remmain hidden */
     width: 0;
+    /* height of the underline */
     height: 3px;
     background: #cc3824;
     position: absolute; /*need to ask*/
@@ -204,6 +221,7 @@ margin-left: 24px;
 }
 
 .tab-contents.active-tab{
+    /* The display: block property is used  to control the visibility and layout of the tab content when it is active. */
     display: block; /*means the list which we earlier made hidden by doing display:none will be visible by using block property but only the list
     related to skills part will be visible*/
     /* to make the effect that only the content will be visible when we click on the skills part, we'll go to html and add onclick where we have 
@@ -225,6 +243,8 @@ margin-left: 24px;
     /* specifies the column size and display in columns*/
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     /* 	A shorthand property for the grid-row-gap and grid-column-gap properties */
+    /* This property sets the gap or spacing between grid cells, both horizontally and vertically. In this case, it creates a gap of 40 pixels 
+    between each cell in the grid. */
     grid-gap: 40px;
     margin-top: 50px;
 }
@@ -233,7 +253,9 @@ margin-left: 24px;
     border-radius: 10px;
     position: relative;
  /* means the image if overlapping, if overflow is hidden, it'll automatically crop somewhat of their images */
-    overflow:hidden;
+   /* When overflow: hidden is applied to an element, it means that any content within that element which exceeds the dimensions of the container
+    will be clipped or hidden from view. In other words, it creates a "hidden" overflow behavior. */
+ overflow:hidden;
   
 }
 
@@ -252,6 +274,8 @@ margin-left: 24px;
 .work img{
     width:100%;
     border-radius: 10px;
+    /* This ensures that the images are displayed as block-level elements, allowing them to take up the full width available within their container
+     and allowing other elements to flow around them. */
     display: block;
     /* transform is written in hover effect of work img, transition is just delaying the transform effect by 0.5s */
     transition: transform 0.5s;
@@ -273,18 +297,25 @@ margin-left: 24px;
     background: linear-gradient(rgba(0,0,0,0.6), #c00e0e);
     border-radius: 10px;
     position: absolute;
+    /*by doing height:0. it makes the written text have 0 height, as we don't want to make it visible  */
     height: 0;
+    /* the layer will be full if left:0, if we do left :10px, then it'll show layer removing 10px */
     left: 0;
     bottom: 0;
+    /* making the text hidden  */
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    /*flex-direction:column as we wanted to display the text column wise */
     flex-direction: column;
     /* some space in left and right */
-    padding: 0 40px;
+    padding: 0px 50px;
     text-align: center;
     font-size: 14px;
+    /* the height is from hover .layer, since we made the content hidden ny making height:0
+    so,whenever user points his mouse at the photo, the hover effect would make it visible
+    and the transition would make it more pleasing */
     transition: height 0.5s;
 }
 .layer h3{
@@ -298,6 +329,7 @@ margin-left: 24px;
     color: #9f0e0e;
     text-decoration: none;
     font-size: 18px;
+    /* setting the height of the line present in the element */
     line-height: 60px;
     background: #fff;
     width: 55px;
@@ -306,6 +338,17 @@ margin-left: 24px;
     text-align: center;
     
 }
+.work:hover img{
+    /* to add transition , have to add transition property in work img */
+    transform: scale(1.1); /*what it'll do is, is slightly zoom in whenever mouse will hover on img*/
+}
+/* to display the content written on the image i.e like Project name and description */
+.work:hover .layer{
+    height: 100%; 
+    /*as we did make height to 0 in layer1 layer2 to make hover effect , but it too made the content written on it hidden, 
+    so to do that, we'll be adding here height=100% so that when mouse hover on img, it'll display the content of layer,and to display 
+    the hover effect efficiently, make transition:height 0.5s in layer */   
+   }
 .layer1{
     width: 266px;
     /* height: 474px; */
@@ -320,18 +363,8 @@ margin-left: 24px;
     /* to create hover effect,need to make height to 0 so that it'll become visible only when the mouse will hover */
     /* height:0; */
 }
-.work:hover img{
-    /* to add transition , have to add transition property in work img */
-    transform: scale(1.1); /*what it'll do is, is slightly zoom in whenever mouse will hover on img*/
-}
 
-/* to display the content written on the image i.e like Project name and description */
-.work:hover .layer{
- height: 100%; 
- /*as we did make height to 0 in layer1 layer2 to make hover effect , but it too made the content written on it hidden, 
- so to do that, we'll be adding here height=100% so that when mouse hover on img, it'll display the content of layer,and to display 
- the hover effect efficiently, make transition:height 0.5s in layer */   
-}
+
 
 /*for button See More */
 .btn{
@@ -408,7 +441,8 @@ margin-left: 24px;
 .btn.btn2:hover{
     background-color:#9f0e0e;
     color:white;
-    box-shadow: 0 0 20px #9f0e0e;   
+    /* horizontal-vertical-blur-color */
+    box-shadow: 0 10px 20px #9f0e0e;   
 }
 
 /* right side contact information */
@@ -417,8 +451,10 @@ margin-left: 24px;
 }
 
 form input, form textarea{
+    /* setting width to 100% of their container */
     width: 100%;
     border: 0;
+    /* Removes the default outline style when the elements are focused. */
     outline: none;
     background: #262626;
     padding: 15px;
@@ -485,32 +521,32 @@ nav .fa-solid{
     font-size: 18px;
     margin-left: -250vw;
     }
-    nav .fa-solid {
-        display: block;
-        font-size: 25px;
-        margin-bottom: 128px;
-        margin-right: -8px;
-    }
-
-    /* nav .fa-bars{
-        margin-left: 200px;
-    } */
     .logo {
         width: 50vh;
         height: 56vh;
         margin-left: -53vh;
         margin-top: -15vh;
     }
+    /* for menu icon, basically the mwnu icon, we hide it so as to not show on bigger screen
+    to make it visible, we did display:block */
+    nav .fa-solid { 
+        display: block;
+        font-size: 25px;
+        margin-bottom: 128px;
+        margin-right: -8px;
+    }
     nav ul{
         /* to design menu bar- making ul icons inside menu bar */
         background-color: #9f0e0e;
         position: fixed;
         top: 0;
+        /* we shifted towards right */
         /* right: 0; */
-        right:-200px; /*to hide the menu bar*/
+        right:-200px;/*to hide the menu bar , but doing this will not open it again */
+       /* as widhtL200px so that's why right:-200px */
         width: 200px;
         height: 100vh;
-        padding-top: 50px;
+        padding-top: 50px; 
         /*adding js to use feature click menu bar to show or hide icons */
         z-index: 2;
         /* as menu is opening and closing a little late, so */
@@ -567,4 +603,50 @@ nav .fa-solid{
         /* height: 100%; */
         
     }
+}
+@media only screen and (min-width:414px) and (max-width:896px){
+#header{
+    background-image: url('./bg_phone.jpg');
+    /* width: 100px; */ 
+    /* height: 600px;
+    /* background-position-x: left 50px ; */
+    /* margin-left: 280px; */
+    /* background-size: cover; */
+    background-position: left;
+    width: 138px;
+    height: 600px;
+    margin-left: 264px; 
+}
+.logo {
+    width: 51vh;
+    height: 56vh;
+    margin-left: -52vh;
+    margin-top: -16vh;
+}
+
+}
+@media only screen and (min-width:390px) and (max-width:844px){
+    #header {
+        margin-left: 255px;
+    }
+    
+}
+@media only screen and (min-width:360px) and (max-width:740px){
+    #header {
+        margin-left: 221px;
+    }
+    .logo {
+        margin-left: -53vh;
+    }
+    
+}
+@media only screen and (min-width:412px) and (max-width:915px){
+    #header {
+        margin-left: 277px;
+    }
+    
+    nav .fa-solid {
+        margin-bottom: 161px;
+    }
+    
 }
