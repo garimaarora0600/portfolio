@@ -9,9 +9,11 @@
     <script src="https://kit.fontawesome.com/0bccdda3a5.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- basically its the header section -->
     <div id="header">
         <img src="" alt="">
         <div class="container">
+            <!-- an HTML element that represents a section of webpage containing navigation links, typically used for menu -->
             <nav>
                 <img src="./InShot_20230429_121725096.jpg" class="logo">
                 <ul id="sidemenu" class="ul">
@@ -43,10 +45,10 @@
               <!-- in right col, we'll add some text  -->
             <div class="about-col-2">
                 <h1 class="subtitle">About Me</h1>
-               <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit quo, ea doloribus itaque ipsa obcaecati quas doloremque dolores 
-                architecto quidem iusto eligendi vitae, maxime nemo iste delectus, quod tenetur possimus.</p>
+               <p> Enthusiastic and passionate software developer with a strong drive for innovation, aiming to contribute actively to
+                organization's progress and success.</p>
                 <div class="tab-titles">
-                    <!-- 3 titles will be there -->
+                    <!-- 3 titles will be there  -->
                     <!--to make the effect that only the content will be visible when we click on the skills part, we'll go to html and add onclick 
                      function where we have write SKILLS !-->
                     <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
@@ -61,6 +63,7 @@
                 <div class="tab-contents active-tab" id="skills">  <!--we added id because of the function onclick=opentab("skills") and id should be same as that of paramter-->
                     <ul>
                         <!-- add one title in a span tag -->
+                        <!-- why we used span, to basically style a specific part of the content -->
                         <li><span>Web Developer</span><br> Designing Web Interfaces</li>
                         <li><span>SQL</span><br>Good Sql Development Skills</li>
                         <li><span>GIT</span><br>Basic Knowledge of Git</li>
@@ -99,7 +102,7 @@
             <div class="layer layer1">
                 <h3>Random Quote Generator</h3>
                 <p>This website geneartes quotes randomly.You can see from here.</p>
-                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                    <a href="https://github.com/garimaarora0600/randomquoteegen"><i class="fa-solid fa-link"></i></a>
             </div>
         </div>
         <div class="work work2">
@@ -109,7 +112,7 @@
         <div class="layer layer2">
             <h3>Food Recipe API website</h3>
             <p>Food Recipe website using API. You can see it from here</p>
-            <a href="#"><i class="fa-solid fa-link"></i></a>
+            <a href="https://github.com/garimaarora0600/foodrecipeapi"><i class="fa-solid fa-link"></i></a>
         </div>
         </div>
         <div class="work work3">
@@ -199,11 +202,11 @@ we click on skills, education or experience, the content remains hidden and it'l
     var sidemenuu=document.getElementById("sidemenu");
     function openmenu(){
         // whenever right will be 0, the menu will be visible
-        sidemenuu.style.right="0"; 
+        sidemenuu.style.right="0"; //nav ul right 
     }
 
     function closemenu(){
-        sidemenuu.style.right="-200px"; //as width is 200px so when right=200px, it'll shift towards right to 200px and becomes hidden 
+        sidemenuu.style.right="-200px"; //as width is 200px (in nav ul)so when right:200px, it'll shift towards right to 200px and becomes hidden 
     }
 </script>
 </body>
